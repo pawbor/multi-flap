@@ -1,5 +1,8 @@
 <!-- Use this file to provide workspace-specific custom instructions to Copilot. For more details, visit https://code.visualstudio.com/docs/copilot/copilot-customization#_use-a-githubcopilotinstructionsmd-file -->
 
+
+# IMPORTANT: Always consult the user before making any changes. Never make assumptions or take action without explicit user approval. Always ask questions if anything is unclear or if there are multiple possible approaches. Do not guess or proceed without confirmation.
+
 # Multi Flap - Multiplayer Flappy Bird Game
 
 This is a real-time multiplayer Flappy Bird game built with:
