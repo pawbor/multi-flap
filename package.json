@@ -1,35 +1,29 @@
 {
   "name": "multi-flap",
   "version": "1.0.0",
-  "description": "Multiplayer Flappy Bird game with real-time synchronization",
-  "main": "dist/server.js",
+  "description": "Multiplayer Flappy Bird game with modular monorepo architecture",
+  "private": true,
   "type": "module",
   "scripts": {
-    "build": "tsc",
-    "dev": "tsx watch src/server.ts",
-    "start": "node dist/server.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "build": "turbo build",
+    "dev": "turbo dev",
+    "lint": "turbo lint",
+    "type-check": "turbo type-check",
+    "clean": "turbo clean"
   },
   "keywords": [
     "game",
     "multiplayer",
     "flappy-bird",
     "websocket",
-    "canvas"
+    "canvas",
+    "monorepo",
+    "turborepo"
   ],
   "author": "",
   "license": "ISC",
   "packageManager": "pnpm@10.12.3",
-  "dependencies": {
-    "@fastify/static": "^8.2.0",
-    "fastify": "^5.4.0",
-    "ws": "^8.18.3"
-  },
   "devDependencies": {
-    "@types/node": "^24.2.0",
-    "@types/ws": "^8.18.1",
-    "nodemon": "^3.1.10",
-    "tsx": "^4.20.3",
-    "typescript": "^5.9.2"
+    "turbo": "^2.5.5"
   }
 }
