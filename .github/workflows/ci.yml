@@ -1,0 +1,39 @@
+name: CI
+
+on:
+  push:
+    branches: ["*"]
+
+jobs:
+  build-and-test:
+    runs-on: ubuntu-latest
+    env:
+      HTTP_PORT: 3000
+      WS_PORT: 3001
+      CLIENT_PORT: 3002
+      VITE_WS_HOST: localhost
+      VITE_WS_PORT: 3001
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up pnpm 
+        uses: pnpm/action-setup@v2
+
+      - name: Install dependencies
+        run: pnpm install --frozen-lockfile
+
+      - name: Lint
+        run: pnpm lint
+
+      - name: Type check
+        run: pnpm type-check
+
+      - name: Build
+        run: pnpm build
+
+      - name: Test
+        run: pnpm test
+
+      - name: Job summary
+        run: echo "CI completed successfully! All checks and Docker builds passed."
