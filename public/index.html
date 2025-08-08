@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Multi Flap - Multiplayer Flappy Bird</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            background: linear-gradient(135deg, #87CEEB 0%, #98FB98 100%);
+            font-family: 'Arial', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+        }
+
+        .game-container {
+            text-align: center;
+            background: white;
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+        }
+
+        h1 {
+            color: #2c3e50;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        canvas {
+            border: 3px solid #2c3e50;
+            border-radius: 10px;
+            background: #87CEEB;
+        }
+
+        .controls {
+            margin-top: 20px;
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .join-form {
+            margin-bottom: 20px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border: 2px solid #3498db;
+            border-radius: 5px;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+
+        button {
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        button:hover {
+            background: #2980b9;
+        }
+
+        button:disabled {
+            background: #bdc3c7;
+            cursor: not-allowed;
+        }
+
+        .game-info {
+            margin-top: 15px;
+            display: flex;
+            justify-content: space-between;
+            font-size: 18px;
+            font-weight: bold;
+            color: #2c3e50;
+        }
+
+        .players-list {
+            margin-top: 15px;
+            text-align: left;
+            max-height: 100px;
+            overflow-y: auto;
+            background: #f8f9fa;
+            padding: 10px;
+            border-radius: 5px;
+        }
+
+        .player-item {
+            display: flex;
+            justify-content: space-between;
+            padding: 2px 0;
+        }
+
+        .player-dead {
+            color: #e74c3c;
+            text-decoration: line-through;
+        }
+
+        .instructions {
+            margin-top: 15px;
+            color: #7f8c8d;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+    <div class="game-container">
+        <h1>🐦 Multi Flap</h1>
+        
+        <div class="join-form" id="joinForm">
+            <input type="text" id="playerName" placeholder="Enter your name" maxlength="15">
+            <button onclick="joinGame()">Join Game</button>
+        </div>
+
+        <canvas id="gameCanvas" width="800" height="600" style="display: none;"></canvas>
+        
+        <div class="game-info" id="gameInfo" style="display: none;">
+            <span>Your Score: <span id="yourScore">0</span></span>
+            <span>Players: <span id="playerCount">0</span></span>
+        </div>
+
+        <div class="players-list" id="playersList" style="display: none;">
+            <h4>Leaderboard:</h4>
+            <div id="playersContent"></div>
+        </div>
+
+        <div class="controls" id="controls" style="display: none;">
+            <button onclick="jump()">Jump (Space)</button>
+            <button onclick="leaveGame()">Leave Game</button>
+        </div>
+
+        <div class="instructions">
+            <p>🎮 Press SPACE or click Jump to fly!</p>
+            <p>🏆 Avoid pipes and compete with other players!</p>
+        </div>
+    </div>
+
+    <script src="client.js"></script>
+</body>
+</html>
