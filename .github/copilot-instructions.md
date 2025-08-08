@@ -4,13 +4,32 @@
 
 This is a real-time multiplayer Flappy Bird game built with:
 - **Backend**: Fastify + WebSockets (ws) + TypeScript
-- **Frontend**: HTML5 Canvas + Vanilla JavaScript
-- **Architecture**: Client-Server with authoritative server
+- **Frontend**: Vite + HTML5 Canvas + Vanilla JavaScript
+- **Architecture**: Monorepo with Turborepo, pnpm workspaces, client-server with authoritative server
+
+## Project Structure:
+- `packages/server/` - Game server (Fastify + WebSocket + TypeScript)
+- `packages/client/` - Game client (Vite + HTML5 Canvas + JavaScript)
+- `packages/shared/` - Shared types and configuration
+- Root level - Turborepo configuration and workspace management
 
 ## Key Components:
-- `src/server.ts` - Game server with physics, collision detection, and player synchronization
-- `public/index.html` - Game client interface
-- `public/client.js` - Client-side game rendering and WebSocket communication
+- `packages/server/src/server.ts` - Game server with physics, collision detection, and player synchronization
+- `packages/server/src/network/NetworkManager.ts` - WebSocket connection management
+- `packages/client/index.html` - Game client interface
+- `packages/client/main.js` - Client-side game rendering and WebSocket communication
+- `packages/shared/src/types.ts` - Shared TypeScript interfaces
+- `packages/shared/src/config.ts` - Game configuration constants
+
+## Development Commands:
+- `pnpm dev` - Start both server and client in development mode
+- `pnpm build` - Build all packages
+- `pnpm --filter @multi-flap/server dev` - Start only server
+- `pnpm --filter @multi-flap/client dev` - Start only client
+
+## Environment Configuration:
+- Server: `packages/server/.env` (HTTP_PORT, WS_PORT)
+- Client: `packages/client/.env` (VITE_WS_HOST, VITE_WS_PORT, CLIENT_PORT)
 
 ## Game Features:
 - Real-time multiplayer with up to 8 players
@@ -24,4 +43,6 @@ This is a real-time multiplayer Flappy Bird game built with:
 - Use 60 FPS game loop for smooth gameplay
 - Maintain consistent game state across all clients
 - Handle player disconnections gracefully
-- Use TypeScript for type safety on server-side
+- Use TypeScript for type safety on server-side and shared code
+- Use environment variables for configuration
+- Follow monorepo best practices with workspace dependencies
