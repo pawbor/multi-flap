@@ -1,0 +1,15 @@
+{
+  "name": "@multi-flap/client",
+  "version": "1.0.0",
+  "description": "Game client for Multi Flap multiplayer game (HTML5 Canvas + WebSocket)",
+  "private": true,
+  "scripts": {
+    "start": "vite",
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "vite": "^5.2.0"
+  }
+}

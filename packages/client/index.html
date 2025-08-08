@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Multi Flap - Multiplayer Flappy Bird</title>
+  <style>
+    html, body { height: 100%; margin: 0; padding: 0; }
+    body { display: flex; align-items: center; justify-content: center; background: #222; }
+    canvas { background: #87ceeb; display: block; margin: 0 auto; border-radius: 8px; box-shadow: 0 2px 16px #0008; }
+    #status { color: #fff; text-align: center; margin-top: 1em; font-family: sans-serif; }
+  </style>
+</head>
+<body>
+  <div>
+    <canvas id="game" width="480" height="640"></canvas>
+    <div id="status">Connecting to server...</div>
+  </div>
+  <script type="module" src="/main.js"></script>
+</body>
+</html>
